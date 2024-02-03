@@ -21,7 +21,12 @@ const userSignup = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const signup = await User.create({ firstname, lastname, email, role, password: hash });
+    const signup = await User.create({
+      firstname,
+      lastname,
+      email,
+      password: hash,
+    });
     const token = createToken(signup._id);
     res.json({ success: "Successfully signed up", email, token, role: signup.role });
   } catch (error) {
