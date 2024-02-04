@@ -12,8 +12,8 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use("/api/users", userRoutes);
-app.use("/api/blogs", blogRoutes);
+app.use("https://mernback-875f.onrender.com/api/users", userRoutes);
+app.use("https://mernback-875f.onrender.com/api/blogs", blogRoutes);
 
 const mongoose = require("mongoose");
 
