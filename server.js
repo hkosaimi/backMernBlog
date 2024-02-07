@@ -3,7 +3,8 @@ require("dotenv").config();
 const app = express();
 const userRoutes = require("./route/user.route");
 const blogRoutes = require("./route/blog.route");
-
+const mongoose = require("mongoose");
+const cors = require("cors");
 //middlewares
 app.use(express.json());
 app.use((req, res, next) => {
@@ -15,7 +16,7 @@ app.use((req, res, next) => {
 app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
 
-const mongoose = require("mongoose");
+app.use(cors());
 
 mongoose
   .connect(process.env.MONGODB_URL)
