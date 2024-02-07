@@ -16,6 +16,9 @@ app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
 
 app.use(cors());
+app.use(cors({
+  origin: "https://frontend-mern-blog-beta.vercel.app"
+}));
 const mongoose = require("mongoose");
 
 mongoose
