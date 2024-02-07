@@ -15,16 +15,16 @@ app.use((req, res, next) => {
 app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
 
-app.use(cors());
+
 app.use(cors({
-  origin: "https://frontend-mern-blog-beta.vercel.app"
+  origin: "https://frontend-mern-blog-beta.vercel.app/#/"
 }));
 const mongoose = require("mongoose");
 
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT || 3000, () => {
       console.log(`Connecting to DB & listening on port ${process.env.PORT}`);
     });
   })
