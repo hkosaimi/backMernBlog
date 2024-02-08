@@ -16,12 +16,11 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
+app.use(cors());
 
 //routes
 app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
-
-app.use(cors());
 
 mongoose
   .connect(process.env.MONGODB_URL)
