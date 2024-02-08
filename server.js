@@ -11,6 +11,11 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+// Middleware to allow all origins
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 //routes
 app.use("/api/users", userRoutes);
