@@ -21,7 +21,7 @@ app.use(cors());
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT || 3000, () => {
       console.log(`Connecting to DB & listening on port ${process.env.PORT}`);
     });
   })
