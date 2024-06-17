@@ -11,6 +11,9 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+app.get("/", (req, res) => {
+  res.send("Welcome to backend");
+});
 // Middleware to allow all origins
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
